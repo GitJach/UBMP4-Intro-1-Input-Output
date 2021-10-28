@@ -30,41 +30,58 @@ int main(void)
    while(1)
     {
       // If SW2 is pressed, make a flashy light pattern
-       // if(SW2 == 0)
-       // {
-       //     LED3 = 1;
-       //     __delay_ms(1000);
-       //     LED4 = 1;
-       //     __delay_ms(1000);
-       //     LED5 = 1;
-       //     __delay_ms(1000);
-       //     LED6 = 1;
-       //     __delay_ms(1000);
-       //     LED3 = 0;
-       //     __delay_ms(1000);
-       //     LED4 = 0;
-       //     __delay_ms(1000);
-       //     LED5 = 0;
-       //     __delay_ms(1000);
-       //     LED6 = 0;
-       //     __delay_ms(1000);
-       // }
+    //    if(SW2 == 0)
+    //    {
+    //        LED3 = 1;
+    //        __delay_ms(4210);
+    //        LED4 = 1;
+    //        __delay_ms(1000);
+    //        LED5 = 1;
+    //        __delay_ms(1000);
+    //        LED6 = 1;
+    //        __delay_ms(1000);
+    //        LED3 = 0;
+    //        __delay_ms(1000);
+    //        LED4 = 0;
+    //        __delay_ms(1000);
+    //        LED5 = 0;
+    //        __delay_ms(1000);
+    //        LED6 = 0;
+    //        __delay_ms(1000);
+    //    }
    //code I made for fun   
-   if (SW2 == 0)
-      {LED5 = 1;
-      __delay_ms(100);
-      LED4 = 1;
-       LED6 = 1;
-       __delay_ms(100);
-       LED3 = 1;
-        __delay_ms(100);
-        LED5 = 0;
-         __delay_ms(100);
-         LED4 = 0;
-       LED6 = 0;
-          __delay_ms(100);
-          LED3 = 0;
-          }
+//    if (SW2 == 0)
+//       {LED5 = 1;
+//       __delay_ms(100);
+//       LED4 = 1;
+//        LED6 = 1;
+//        __delay_ms(100);
+//        LED3 = 1;
+//         __delay_ms(100);
+//         LED5 = 0;
+//          __delay_ms(100);
+//          LED4 = 0;
+//        LED6 = 0;
+//           __delay_ms(100);
+//           LED3 = 0;
+//           }
+// Make a tone while SW5 is held
+       if(SW5 == 0)
+       {
+           BEEPER = !BEEPER;
+           __delay_us(567);
+            BEEPER = !BEEPER;
+           __delay_us(567);
+ BEEPER = !BEEPER;
+           __delay_us(567);
+            BEEPER = !BEEPER;
+           __delay_us(567);
+ BEEPER = !BEEPER;
+           __delay_us(567);
+            BEEPER = !BEEPER;
+           __delay_us(567);
+
+       }
       
  
        // Add code for your Program Analysis and Programming Activities here:
@@ -244,7 +261,7 @@ If is momentary and short and while last as long as it's condtion is met
 *    Try changing the delay values in both of the __delay_us(); functions.
 *    Does the pitch of the tone increase or decrease if the delay value is
 *    made smaller?
-*
+*the pitch is high enough to cause me pain at 100 ms (lower = higher pitch) and the higher the delay the lower th pitch
 * 3. This code demonstrates a more compact way of toggling the beeper output
 *    using a logical NOT operator '!'. Replace the code above, with this code:
        // Make a tone while SW5 is held
