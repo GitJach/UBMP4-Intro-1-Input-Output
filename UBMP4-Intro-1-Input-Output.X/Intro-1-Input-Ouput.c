@@ -66,23 +66,29 @@ int main(void)
 //           LED3 = 0;
 //           }
 // Make a tone while SW5 is held
-       if(SW5 == 0)
+       if(SW2 == 0)
        {
            BEEPER = !BEEPER;
-           __delay_us(567);
-            BEEPER = !BEEPER;
-           __delay_us(567);
- BEEPER = !BEEPER;
-           __delay_us(567);
-            BEEPER = !BEEPER;
-           __delay_us(567);
- BEEPER = !BEEPER;
-           __delay_us(567);
-            BEEPER = !BEEPER;
-           __delay_us(567);
-
+           __delay_us(587.33);
        }
-      
+       if(SW3 == 0)
+       {
+           BEEPER = !BEEPER;
+           __delay_us(440.00);
+       } if(SW4 == 0)
+       {
+           BEEPER = !BEEPER;
+           __delay_us(783.99);
+       } if(SW5 == 0)
+       {
+           BEEPER = !BEEPER;
+           __delay_us(830.61);
+       }
+       if(SW2 == 0 && SW5 == 0)
+       {
+           BEEPER = !BEEPER;
+           __delay_us(698.46);
+       }
  
        // Add code for your Program Analysis and Programming Activities here:
  
