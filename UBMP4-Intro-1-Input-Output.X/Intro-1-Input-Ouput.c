@@ -49,46 +49,18 @@ int main(void)
     //        LED6 = 0;
     //        __delay_ms(1000);
     //    }
-   //code I made for fun   
-//    if (SW2 == 0)
-//       {LED5 = 1;
-//       __delay_ms(100);
-//       LED4 = 1;
-//        LED6 = 1;
-//        __delay_ms(100);
-//        LED3 = 1;
-//         __delay_ms(100);
-//         LED5 = 0;
-//          __delay_ms(100);
-//          LED4 = 0;
-//        LED6 = 0;
-//           __delay_ms(100);
-//           LED3 = 0;
-//           }
+if (SW3 == 0)
+{
+    LED4 = 1;
+}
+if (LED4 == 1)
+{
+    if (SW4 == 0)
+    LED4=0;
+}
 // Make a tone while SW5 is held
-       if(SW2 == 0)
-       {
-           BEEPER = !BEEPER;
-           __delay_us(587.33);
-       }
-       if(SW3 == 0)
-       {
-           BEEPER = !BEEPER;
-           __delay_us(440.00);
-       } if(SW4 == 0)
-       {
-           BEEPER = !BEEPER;
-           __delay_us(783.99);
-       } if(SW5 == 0)
-       {
-           BEEPER = !BEEPER;
-           __delay_us(830.61);
-       }
-       if(SW2 == 0 && SW5 == 0)
-       {
-           BEEPER = !BEEPER;
-           __delay_us(698.46);
-       }
+       
+
  
        // Add code for your Program Analysis and Programming Activities here:
  
@@ -249,7 +221,7 @@ If is momentary and short and while last as long as it's condtion is met
 *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
 *    before MPLAB-X produces an error message? (Hint: can you think of a fast
 *    and efficient way of guessing an unknown number?)
-*
+*4000+ breaks it
 * 2. The '__delay_ms();' function only accepts integers as delay values. To
 *    make delays shorter than 1ms, specify a delay in microseconds using the
 *    '__delay_us();' function. You won't be able to see such short LED flashes
@@ -282,20 +254,24 @@ If is momentary and short and while last as long as it's condtion is met
 *    be in after this code runs? While one advantage of this method is smaller
 *    code, can you think of one or more disadvantages based on its output when
 *    the button is released?
-*
+*it can iether be on or off. This code is shorter than the previous one.  will not know what state the button is in with this code
 * 4. Using modified versions of the original SW2 'if' structure, create a
 *    program that makes a unique LED flashing pattern for each pushbutton.
 *
 *    Test each of your flashing patterns. Describe what happens when more than
 *    one button is held. Do all of the patterns try to flash the LEDs at the
 *    same time, or sequentially? Explain why this is.
+* all of the LEDs try to flash a different pattern. It does it in order so since switch 2 is in 
+* The begining it flashes it's pattern first then switch 3. I believe the cause is that the program 
+* is checking If I pressed the buttons and executing the program but since I held both of them down
+* It find them both true and is executing all the programs associated sequentially of course 
 *
 * 5. Create a program that makes a different tone for each pushbutton.
 *
 *    Test each tone by pressing each button individually. Next, press two or
 *    more buttons at the same time. Describe what the tone waveform would look
 *    like when more than one button is held.
-*
+* 
 * 6. Use individual 'if' structures to simulate 'Start' and 'Stop' buttons for
 *    an industrial machine. LED D4 should turn on when SW3 is pressed, stay on
 *    even after SW3 is released, and turn off when SW4 is pressed. Test your
