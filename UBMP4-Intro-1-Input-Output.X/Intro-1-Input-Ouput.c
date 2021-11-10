@@ -49,15 +49,13 @@ int main(void)
     //        LED6 = 0;
     //        __delay_ms(1000);
     //    }
-if (SW3 == 0)
+if (SW4 == 0)
 {
-    LED4 = 1;
+    D1 = 1;
+    __delay_ms(100);
+    D1 = 0;
 }
-if (LED4 == 1)
-{
-    if (SW4 == 0)
-    LED4=0;
-}
+
 // Make a tone while SW5 is held
        
 
@@ -78,9 +76,10 @@ if (LED4 == 1)
 *    Do the LEDs keep flashing when SW2 is held? Look at the program and
 *    explain why this happens when SW2 is held.
 <<<<<<< HEAD
-* // all 4 flash once. yes they keep flashing if held.
-//they keep flashing becuase the code is actively checking if the SW2 is pressed,
-and since im hloding it I am pressing it and so the code runs over and over again
+* // all 4 flash once. yes they keep flashing if held. because as the program reads and goes down the code 
+it loops back up and checks if the statement is still true, and it is since I'm holding it or in other words
+pressing it infinetly 
+
 * 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
 * // this turns LED3 = 1 on LED 3 = 0 and off
 * 3. What voltage do you expect the microcontroller to output to LED D3 when
@@ -89,23 +88,15 @@ and since im hloding it I am pressing it and so the code runs over and over agai
 * // LED3 = 0 has 0 voltage going through and LED3 = 1 has 5v
 *    You can confirm the output voltage with a voltmeter if you have access
 *    to one. If you tried that, did the voltage match your prediction?
-yes
+yes it did.
 =======
 *
-* 2. Explain the difference between the statements: LED3 = 0; and LED3 = 1;
-*
-* 3. What voltage do you expect the microcontroller to output to LED D3 when
-*    the statement LED3 = 0; runs? What voltage do you expect the output to be
-*    when the statement LED3 = 1; runs?
-*
-*    You can confirm the output voltage with a voltmeter if you have access
-*    to one. If you tried that, did the voltage match your prediction?
 >>>>>>> 745983aadb1540a52afe20a74cf75226b7c06918
 *
 * 4. The statement 'if(SW2 == 0)' uses two equal signs, while the statement
 *    'LED3 = 1;' uses a single equal sign. What operation is performed by one
 *    equal sign? What operation is performed by two equal signs?
-* == compares two varibales to check if they are equal or not and = assigns value to a variable
+* == compares two varibales to check if they are equal or not, and = assigns value to a variable
 * 5. The following program code includes instructions that write to the PORTC
 *    output latches directly. Try it by copying and pasting this code below
 *    the existing SW2 'if' structure, at the location shown by the comment.
@@ -122,8 +113,9 @@ yes
 *    advantage and one disadvantage of controlling the LEDs using 'LATC' writes
 *    rather than through individual 'LEDn = x;' statements.
 * all of the LEDs turn on and do not turn off it
-an advantage would be the time save and a disadvantage would be that it affects every LED and wont allow for more
-complex task
+an advantage would be the time save writing code and a disadvantage would be that it affects every LED and wont allow for more
+complex task. Another thing is that messing with the LATC can have unforseen consequences if you do not know what the 
+other digits account for
 * 6. Next, compare the operation of 'if' and 'while' structures to simulate
 *    momentary buttons. Replace the code you added in 5, above, with this code:
  
@@ -221,7 +213,7 @@ If is momentary and short and while last as long as it's condtion is met
 *    Can the delay be made even longer? Try 1000 ms. How big can the delay be
 *    before MPLAB-X produces an error message? (Hint: can you think of a fast
 *    and efficient way of guessing an unknown number?)
-*4000+ breaks it
+*4205+ breaks it. double or split your ranges 1000-2000 then to 3000 then 4 is too big then spilt that range 
 * 2. The '__delay_ms();' function only accepts integers as delay values. To
 *    make delays shorter than 1ms, specify a delay in microseconds using the
 *    '__delay_us();' function. You won't be able to see such short LED flashes
@@ -254,7 +246,7 @@ If is momentary and short and while last as long as it's condtion is met
 *    be in after this code runs? While one advantage of this method is smaller
 *    code, can you think of one or more disadvantages based on its output when
 *    the button is released?
-*it can iether be on or off. This code is shorter than the previous one.  will not know what state the button is in with this code
+*it can either be on or off. This code is shorter than the previous one.  will not know what state the button is in with this code
 * 4. Using modified versions of the original SW2 'if' structure, create a
 *    program that makes a unique LED flashing pattern for each pushbutton.
 *
@@ -282,13 +274,21 @@ If is momentary and short and while last as long as it's condtion is met
 *    of LED D4 compare between its normal on state following SW3 being pressed
 *    to this new state when both SW3 and SW4 are bing held? Can you explain
 *    why it changes?
-*
+*The LED is dimer beauce it's turning off and on really fast 
 * 8. As you can imagine, an industrial machine that is able to turn on even
 *    while its 'Stop' button is pressed represents a significant safety hazard.
 *    Using a logical conditional operator, modify the start-stop program from
 *    activity 5 to make it safer. SW3 should only turn on LED D4 if SW4 is
 *    released.
-*
+*if (SW4 == 0)
+{
+    LED4 = 0;
+}
+else
+{
+    if (SW3 == 0)
+    LED4=1;
+}
 * 9. LED D1 is normally used to indicate that a program is running, but it can
 *    be controlled by your program as well. If you take a look at the UBMP4
 *    schematic, you will see that LED D1's cathode (or negative) pin is
@@ -296,5 +296,9 @@ If is momentary and short and while last as long as it's condtion is met
 *    with the other LEDs. This means that you need to make D1's output a zero
 *    to turn D1 on. Try it! Make a program that controls or flashes LED D1.
 */
- 
-
+// if (SW4 == 0)
+// {
+//     D1 = 1;
+//     __delay_ms(100);
+//     D1 = 0;
+// }
